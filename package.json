@@ -1,0 +1,26 @@
+{
+  "name": "summit-seekers",
+  "version": "1.0.0",
+  "description": "Trekking Blog",
+  "main": "index.html",
+  "scripts": {
+    "watch:sass": "sass sass/styles.scss css/style.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:sass": "sass sass/styles.scss css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.comp.css -o css/style.prefix.css",
+    "compress:css": "sass css/style.prefix.css css/style.css ",
+    "build:js": "uglifyjs js/main.js -o js/main.min.js",
+    "build": "npm-run-all compile:sass prefix:css compress:css build:js"
+  },
+  "author": "Jatin Narang",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "concat": "^1.0.3",
+    "npm-run-all": "^4.1.1",
+    "postcss-cli": "^4.1.1",
+    "sass": "^1.78.0",
+    "uglify-js": "^3.19.3"
+  }
+}
